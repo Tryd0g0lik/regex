@@ -11,6 +11,13 @@ module.exports = {
 		sourceType: 'module',
 	},
 	rules: {
+		"no-useless-escape": "error",
+		"no-useless-escape": 0,
+		"new-cap": 0,
+		"no-undef": 0,
+		"no-tabs": ["error", { "allowIndentationTabs": true }],
+		"indent": 0,
+		"no-unused-vars": 0,
 		"no-restricted-syntax": [
 			"error",
 			"LabeledStatement",

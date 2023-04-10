@@ -4,10 +4,11 @@
 	"description": "My webpack project",
 	"main": "index.js",
 	"scripts": {
-		"test": "echo \"Error: no test specified\" && exit 1",
+		"test": "jest",
+		"coverage": "jest --coverage",
 		"lint": "eslint .",
-		"build": "webpack --mode=production --node-env=production ./webpack.config.js",
-		"build:dev": "webpack --mode=development --node-env=development ./webpack.config.js",
+		"build": "webpack --mode production  --config ./webpack.config.js",
+		"build:dev": "webpack --mode development --config ./webpack.config.js",
 		"watch": "webpack --watch",
 		"serve": "webpack serve"
 	},
