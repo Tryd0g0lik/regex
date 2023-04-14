@@ -5,18 +5,18 @@ export default class Validator {
 	}
 
 	validateUsername() {
-		const datas = { ...this.data };
-		const r = /(^[a-zA-Z])([a-zA-Z0-9_\-]+)([a-zA-Z]$)/gi;
-		const rFilter = /([0-9]{4,})/gi;
-		const stringOfDatas = datas.names;
-		// const result = rFilter.test(stringOfDatas);
-		if (r.test(stringOfDatas) === true && rFilter.test(stringOfDatas) === false) {
-			return stringOfDatas;
+		const r = /(^[a-zA-Z])([a-zA-Z_\-]+[0-9]{0,3})([a-zA-Z]$)/gi;
+		const stringOfDatas = this.data.names;
+		// console.error(`Строка "${stringOfDatas}" не должна содержать более трёх цифр подряд`);
+		function newError() {
+			throw new Error`Строка "${stringOfDatas}" не должна содержать более трёх цифр подряд`();
 		}
+		const answer = r.test(stringOfDatas) ? stringOfDatas
+			: newError();
 
-		throw new Error(`Строка "${stringOfDatas}" не должна содержать более трёх цифр подряд`);
+		return answer;
 	}
 }
 
-// const r = new Validator('Pe_t504-y242e');
+// const r = new Validator('Pe_t-ye56s');
 // r.validateUsername();

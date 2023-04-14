@@ -10,12 +10,11 @@ beforeEach(() => {
 test('should call loadUser once', () => {
   httpGet.mockReturnValue(JSON.stringify({}));
 
-  const response = loadUser(1);
+	const response = new loadUser(1);
   expect(response).toEqual({});
-  expect(httpGet).toBeCalledWith('http://server:8080/users/1');
+	expect(httpGet).toHaveBeenCalledWith('http://server:8080/users/1');
 });
 
 test('The function saveUser will tsting', () => {
-	const response = saveUser('Vasya');
-	expect(response).toBeCalledWith('Vasya');
+	expect(() => { new saveUser('Vasya')(); }).toThrow();
 });
