@@ -9,18 +9,16 @@ describe('the test Constructor', () => {
 
 describe('Testing Throw', () => {
 	const dataTest = test.each([
-		['taest 01', 'Pe_t50400000000000-y242e', 'function did not throw'],
-		['taest 02', 'Pe_t5042-y242e', Error],
-		['taest 03', 'Pe_kj,le', Error],
-		['taest 04', 'Pe_t5042-y21_42e', Error],
-		['taest 05', '0Petye', Error],
-		['taest 06', 'Pety2', Error],
+		['taest 01', 'Pe_t50400000000000-y242e', false],
+		['taest 02', 'Pe_t5042-y242e', false],
+		['taest 03', 'Pe_kj,le', false],
+		['taest 04', 'Pe_t5042-y21_42e', false],
+		['taest 05', '0Petye', false],
+		['taest 06', 'Pety2', false],
 	]);
 
 	dataTest('RegExp => %s, %s', (a, b, expected) => {
-		expect(() => {
-			const answerTes = new app(b);
-			answerTes.validateUsername();
-		}).toThrow();
+		const answerTes = new app(b);
+		expect(answerTes.validateUsername()).toBe(expected);
 	});
 });
